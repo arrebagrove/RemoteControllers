@@ -75,7 +75,9 @@ namespace RemoteControls
                 Interval = new TimeSpan(1000),
             };
             Debounce.Tick += Debounce_Tick;
-            
+            TextBox tb = TextBoxes["textBox" + "Mode"];
+            CurrentMode = ControllerModes.Normal;
+                tb.Text = CurrentUnit;
         }
 
         private void Debounce_Tick(object sender, object e)
@@ -113,6 +115,8 @@ namespace RemoteControls
         /// <param name="msg">The received value prefixed by the command character</param>
         public async Task UpdateText(string msg)
         {
+            if (CurrentMode == ControllerModes.Normal)
+                return;
             if (starting)
             {
                 starting = false;

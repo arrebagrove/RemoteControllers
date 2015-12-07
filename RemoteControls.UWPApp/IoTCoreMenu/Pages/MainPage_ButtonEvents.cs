@@ -25,6 +25,14 @@ namespace RemoteControls
         int CurrentX = 0;
         int CurrentY = 0;
 
+        enum ControllerModes
+        {
+            Normal,
+            Programmming
+        }
+        ControllerModes CurrentMode = ControllerModes.Normal;
+
+
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
 
@@ -63,7 +71,8 @@ namespace RemoteControls
                 CurrentX = iCol;
                 CurrentY = iRow;
 
-                    
+                TextBox tb = TextBoxes["textBox" + "Mode"];
+                bool done = false;
 
                 //double value;
                 try
@@ -72,19 +81,19 @@ namespace RemoteControls
                     {
                         // Mode and Power
                         case "(1,0)":
-                            CurrentUnit = "TV";
-                            ShowProgress(false);
-                            return;
+                            CurrentUnit = "TV";                          
+                            tb.Text =  CurrentUnit;
+                            done = true;
                             break;
                         case "(2,0)":
                             CurrentUnit = "DVD";
-                            ShowProgress(false);
-                            return;
+                            tb.Text = CurrentUnit;
+                            done = true;
                             break;
                         case "(3,0)":
                             CurrentUnit = "PVR";
-                            ShowProgress(false);
-                            return;
+                            tb.Text = CurrentUnit;
+                            done = true;
                             break;
                             //await Globals.RemoteControlAPI.Insert("DVD", "REC", 2, 3, 20, "RAW", 137, 1, 3);
                             //System.Diagnostics.Debug.WriteLine("Mode/Pwr");
@@ -166,7 +175,19 @@ namespace RemoteControls
                             //return;
                             break;
                         case "(3,10)":
-                            navButton_Click(sender, e);
+                            //navButton_Click(sender, e);
+                            if (CurrentMode == ControllerModes.Normal)
+                            {
+                                CurrentMode = ControllerModes.Programmming;
+                                tb.Text = "P:" + CurrentUnit;
+                            }
+                            else
+                            {
+                                CurrentMode = ControllerModes.Normal;
+                                tb.Text =  CurrentUnit;
+                            }
+                            ShowProgress(false);
+                            done = true;
                             break;
                         //navButton_Click(sender, e);;
                         /*   //case "(4,0)":
@@ -312,8 +333,21 @@ namespace RemoteControls
                             System.Diagnostics.Debug.WriteLine("Command: {0} not found", coords);
                             break;
                     }
-                    CurrentKey = (string)button.Content;
-                    //ShowProgress(false);
+                    if (done)
+                    {
+                        ShowProgress(false);
+                    }
+                    else {
+                        CurrentKey = (string)button.Content;
+                        if (CurrentMode == ControllerModes.Normal)
+                        {
+                            ShowProgress(false);
+                        }
+                        else
+                        {
+
+                        }
+                    }
                 }
                 catch (Exception ex)
                 {
