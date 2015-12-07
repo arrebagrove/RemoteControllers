@@ -1,0 +1,50 @@
+﻿[
+  {
+    "ElementConfig": [
+      [
+        { "Comment_":                        "These items are ignored" },
+        { "Comment_DataTypes":               "In ElementConfig, first character of name sets data type: i=integer, c=character, string"},
+        { "Comment_ignore":                  "======================================================================================="},
+        { "Comment_Next5":                   "These are UI element properties:"},
+        { "iWidth": 70 },
+        { "iTextBoxWidth": 70 },
+        { "iTextBlockWidth": 70 },
+        { "iHeight": 40 },
+        { "iMargin": 5 },
+        { "Comment_iSensorsRowIndex":        "MainMenu: A row in MainMenu that contains the names of the sensors." },
+        { "iSensorsRowIndex": 1 },
+        { "Comment_iValuesRowIndex":         "Main:Menu The row in the UI that shows the individual sensor values." },
+        { "iValuesRowIndex": 2 },
+        { "Comment_iCommandActionsColIndex": "MainMenu: The column that has the names of the actions, usually 0" },
+        { "iCommandActionsColIndex": 0 },
+        { "Comment_cTextBlockPrefix":        "MainMenu: If the UI element name is prefixed with this then its a TextBlock." },
+        { "cTextBlockPrefix": "_" },
+        { "Comment_cTextBoxPrefix":          "MainMenu: If the UI element name is prefixed wth this then its a TextBox." },
+        { "cTextBoxPrefix": "=" },
+        { "Comment_ignore2 ":                "======================================================================================="},
+        { "Comment_sComPortId":              "SerialPort: The serial port's Id string." },
+        { "sComPortId": "\\\\?\\USB#VID_26BA&PID_0003#5543830353935161A112#{86e0d1e0-8089-11d0-9ce4-08003e301f73}" },
+        { "Comment_iComportConnectDeviceNo": "SerialPort: The index of the serial port in list of connnected devices." },
+        { "iComportConnectDeviceNo": -1 },
+        { "Comment_sUseSerial": "Either BT for Bluetooth, or USB Serial" },
+        { "sUseSerial": "BTx" },
+        { "cPacketDelimeterChar": "~"}
+      ]
+    ]
+  },
+  {
+    "MainMenu": [
+      [  "_Mode", "TV-8", "DVD-9","PVR-3"],
+      [ "[1-0]", "[2-0]", "[3-0]", "[Pwr-2]"],
+      [ "[4-0]", "[5-0]", "[6-0]", "[Ch+-4]"],
+      [ "[7-0]", "[8-0]", "[9-0]", "[Ch--4]"],
+      [ "Src-9", "[0-0]", "List-6", "[Mute-2]" ],
+      [ "Dtv-9", "^-8", "Home-6", "[V+-7]" ],
+      [ "<-8", "[{OK-8}]", ">-8","[V--7]"],
+      [ "Return-9", "V-8", "Exit-6", "_" ],
+      [ "<<-7", "[||-7]", ">>|-7", "_" ],
+      [ "<<-7", "[(Play-7)]", ">>-7", "[Eject-7]" ],
+      [ "Display-9", "[Stop-7]", "[Record-2]", "[Admin-5]" ]
+    ]
+  }
+]
